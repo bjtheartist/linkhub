@@ -36,6 +36,11 @@ import {
   Megaphone,
   AlertTriangle,
   Sparkles,
+  Briefcase,
+  FileText,
+  PenTool,
+  Rocket,
+  TrendingUp,
 } from "lucide-react";
 
 // ============================================
@@ -54,6 +59,67 @@ const socialLinks = [
   { name: "Twitter", url: "https://twitter.com", icon: <Twitter className="w-5 h-5" /> },
   { name: "LinkedIn", url: "https://linkedin.com", icon: <Linkedin className="w-5 h-5" /> },
   { name: "Email", url: "mailto:hello@example.com", icon: <Mail className="w-5 h-5" /> },
+];
+
+// ============================================
+// PROFESSIONAL PORTFOLIO
+// ============================================
+
+const portfolioLinks = [
+  {
+    title: "Full Portfolio",
+    description: "Startup and economic development work",
+    url: "#", // Replace with your portfolio URL
+    icon: <Briefcase className="w-5 h-5" />,
+  },
+  {
+    title: "Featured Project: [Project Name]",
+    description: "Brief description of your key project",
+    url: "#", // Replace with project URL
+    icon: <Rocket className="w-5 h-5" />,
+  },
+  {
+    title: "Case Studies",
+    description: "Deep dives into selected work",
+    url: "#", // Replace with case studies URL
+    icon: <TrendingUp className="w-5 h-5" />,
+  },
+];
+
+const resumeLinks = [
+  {
+    title: "CV / Resume",
+    description: "Professional experience and education",
+    url: "#", // Replace with CV/resume URL or PDF
+    icon: <FileText className="w-5 h-5" />,
+  },
+  {
+    title: "LinkedIn Profile",
+    description: "Connect with me professionally",
+    url: "https://linkedin.com", // Replace with your LinkedIn
+    icon: <Linkedin className="w-5 h-5" />,
+  },
+];
+
+const writingsLinks = [
+  {
+    title: "Selected Essays",
+    description: "Thoughts on startups, econ dev, and more",
+    url: "#", // Replace with essays URL
+    icon: <PenTool className="w-5 h-5" />,
+  },
+  {
+    title: "Published Articles",
+    description: "Writing featured in publications",
+    url: "#", // Replace with articles URL
+    icon: <FileText className="w-5 h-5" />,
+  },
+  {
+    title: "Blog / Newsletter",
+    description: "Regular updates and reflections",
+    url: "#", // Replace with blog URL
+    icon: <PenTool className="w-5 h-5" />,
+  },
 ];
 
 // ============================================
@@ -399,6 +465,65 @@ export default function Home() {
         {/* Category blocks */}
         <div className="space-y-2">
           
+          {/* PROFESSIONAL PORTFOLIO */}
+          <CategoryBlock
+            title="Professional"
+            icon={<Briefcase className="w-6 h-6" />}
+            description="Portfolio, CV, and writings"
+            isExpanded={expandedCategory === "professional"}
+            onClick={() => toggleCategory("professional")}
+            index={0}
+          >
+            <SubCategory 
+              title="Portfolio" 
+              icon={<Rocket className="w-4 h-4" />}
+              defaultOpen={true}
+            >
+              {portfolioLinks.map((link) => (
+                <LinkCard
+                  key={link.title}
+                  title={link.title}
+                  description={link.description}
+                  url={link.url}
+                  icon={link.icon}
+                  index={linkIndex++}
+                />
+              ))}
+            </SubCategory>
+
+            <SubCategory 
+              title="CV / Resume" 
+              icon={<FileText className="w-4 h-4" />}
+            >
+              {resumeLinks.map((link) => (
+                <LinkCard
+                  key={link.title}
+                  title={link.title}
+                  description={link.description}
+                  url={link.url}
+                  icon={link.icon}
+                  index={linkIndex++}
+                />
+              ))}
+            </SubCategory>
+
+            <SubCategory 
+              title="Select Writings" 
+              icon={<PenTool className="w-4 h-4" />}
+            >
+              {writingsLinks.map((link) => (
+                <LinkCard
+                  key={link.title}
+                  title={link.title}
+                  description={link.description}
+                  url={link.url}
+                  icon={link.icon}
+                  index={linkIndex++}
+                />
+              ))}
+            </SubCategory>
+          </CategoryBlock>
+
           {/* ARTS */}
           <CategoryBlock
             title="Arts"
@@ -406,7 +531,7 @@ export default function Home() {
             description="Photography and visual work"
             isExpanded={expandedCategory === "arts"}
             onClick={() => toggleCategory("arts")}
-            index={0}
+            index={1}
           >
             <SubCategory 
               title="Photography" 
@@ -433,7 +558,7 @@ export default function Home() {
             description="Reading lists and book recommendations"
             isExpanded={expandedCategory === "literature"}
             onClick={() => toggleCategory("literature")}
-            index={1}
+            index={2}
           >
             <SubCategory 
               title="Poetry & Philosophy" 
@@ -491,7 +616,7 @@ export default function Home() {
             description="Health and wellness resources"
             isExpanded={expandedCategory === "fitness"}
             onClick={() => toggleCategory("fitness")}
-            index={2}
+            index={3}
           >
             <SubCategory 
               title="Health & Wellness" 
@@ -518,7 +643,7 @@ export default function Home() {
             description="Urban planning, technology, and economics"
             isExpanded={expandedCategory === "tech"}
             onClick={() => toggleCategory("tech")}
-            index={3}
+            index={4}
           >
             <SubCategory 
               title="Urban Planning" 
@@ -560,7 +685,7 @@ export default function Home() {
             description="Community resources and solidarity"
             isExpanded={expandedCategory === "mutualaid"}
             onClick={() => toggleCategory("mutualaid")}
-            index={4}
+            index={5}
           >
             <SubCategory 
               title="✊ Black Mutual Aid" 
