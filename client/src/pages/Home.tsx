@@ -6,6 +6,8 @@
  */
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { CategoryBlock } from "@/components/CategoryBlock";
 import { SubCategory } from "@/components/SubCategory";
@@ -37,6 +39,7 @@ import {
   Briefcase,
   PenTool,
   Rocket,
+  User,
 } from "lucide-react";
 
 // ============================================
@@ -88,12 +91,6 @@ const photographyLinks = [
     url: "https://galleries.pixieset.com/collections/99513278/sets/142466368",
     icon: <Camera className="w-5 h-5" />,
   },
-  {
-    title: "Instagram",
-    description: "@bjtheartist",
-    url: "https://instagram.com/bjtheartist",
-    icon: <Camera className="w-5 h-5" />,
-  },
 ];
 
 // ============================================
@@ -123,9 +120,9 @@ const poetryPhilosophyLinks = [
 
 const blackRadicalLinks = [
   {
-    title: "Black Marxism - Cedric Robinson",
-    description: "The making of the Black radical tradition",
-    url: "https://uncpress.org/book/9780807848296/black-marxism/",
+    title: "Stamped from the Beginning - Ibram X. Kendi",
+    description: "The definitive history of racist ideas in America",
+    url: "https://www.ibramxkendi.com/stamped",
     icon: <BookMarked className="w-5 h-5" />,
   },
   {
@@ -141,10 +138,10 @@ const blackRadicalLinks = [
     icon: <BookMarked className="w-5 h-5" />,
   },
   {
-    title: "Schomburg Black Liberation List",
-    description: "NYPL's essential reading list",
-    url: "https://www.nypl.org/books-more/recommendations/schomburg/adults",
-    icon: <BookOpen className="w-5 h-5" />,
+    title: "A Black Theology of Liberation - James Cone",
+    description: "Foundational text on Black Christian liberation theology",
+    url: "https://orbisbooks.com/products/a-black-theology-of-liberation",
+    icon: <BookMarked className="w-5 h-5" />,
   },
 ];
 
@@ -387,6 +384,7 @@ const globalSolidarityLinks = [
 // ============================================
 
 export default function Home() {
+  const [, navigate] = useLocation();
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   const toggleCategory = (category: string) => {
@@ -407,8 +405,42 @@ export default function Home() {
           location={profile.location}
         />
 
-        {/* Social links */}
+        {/* Social links + About Me */}
         <SocialLinks links={socialLinks} />
+
+        {/* About Me button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.6 }}
+          className="flex justify-center mb-10 -mt-4"
+        >
+          <motion.button
+            onClick={() => navigate("/about")}
+            whileHover={{ x: 2, y: 2 }}
+            whileTap={{ x: 4, y: 4 }}
+            className="group relative"
+          >
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "var(--brutal-black)",
+                transform: "translate(4px, 4px)",
+              }}
+            />
+            <div
+              className="relative px-5 py-2 flex items-center gap-2 font-display font-bold text-sm uppercase tracking-wide transition-colors duration-150 group-hover:bg-[var(--brutal-red)] group-hover:text-[var(--brutal-cream)]"
+              style={{
+                background: "var(--brutal-cream)",
+                border: "3px solid var(--brutal-black)",
+                color: "var(--brutal-black)",
+              }}
+            >
+              <User className="w-4 h-4" />
+              About Me
+            </div>
+          </motion.button>
+        </motion.div>
 
         {/* Category blocks */}
         <div className="space-y-2">
