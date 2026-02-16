@@ -10,12 +10,13 @@ import { ReactNode, useState } from "react";
 
 interface SubCategoryProps {
   title: string;
+  description?: string;
   icon: ReactNode;
   children: ReactNode;
   defaultOpen?: boolean;
 }
 
-export function SubCategory({ title, icon, children, defaultOpen = false }: SubCategoryProps) {
+export function SubCategory({ title, description, icon, children, defaultOpen = false }: SubCategoryProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
@@ -56,13 +57,23 @@ export function SubCategory({ title, icon, children, defaultOpen = false }: SubC
             <span style={{ color: "var(--brutal-cream)" }}>{icon}</span>
           </div>
 
-          {/* Title */}
-          <span 
-            className="font-display font-bold text-sm uppercase tracking-wide flex-1"
-            style={{ color: "var(--brutal-black)" }}
-          >
-            {title}
-          </span>
+          {/* Title + description */}
+          <div className="flex-1">
+            <span
+              className="font-display font-bold text-sm uppercase tracking-wide block"
+              style={{ color: "var(--brutal-black)" }}
+            >
+              {title}
+            </span>
+            {description && (
+              <span
+                className="text-xs block mt-0.5"
+                style={{ color: "var(--brutal-black)", opacity: 0.6 }}
+              >
+                {description}
+              </span>
+            )}
+          </div>
 
           {/* Arrow */}
           <motion.div

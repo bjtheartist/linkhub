@@ -413,17 +413,18 @@ export default function Home() {
         {/* Category blocks */}
         <div className="space-y-2">
           
-          {/* PROFESSIONAL PORTFOLIO */}
+          {/* PROJECTS */}
           <CategoryBlock
-            title="Professional"
+            title="Projects"
             icon={<Briefcase className="w-6 h-6" />}
-            description="Portfolio, CV, and writings"
+            description="Data, design, and Chicago tech"
             isExpanded={expandedCategory === "professional"}
             onClick={() => toggleCategory("professional")}
             index={0}
           >
-            <SubCategory 
-              title="Portfolio" 
+            <SubCategory
+              title="Portfolio"
+              description="Code and builds"
               icon={<Rocket className="w-4 h-4" />}
               defaultOpen={true}
             >
@@ -439,8 +440,9 @@ export default function Home() {
               ))}
             </SubCategory>
 
-<SubCategory 
-              title="Select Writings" 
+<SubCategory
+              title="Writings"
+              description="Research and long-form work"
               icon={<PenTool className="w-4 h-4" />}
             >
               {writingsLinks.map((link) => (
@@ -465,8 +467,9 @@ export default function Home() {
             onClick={() => toggleCategory("arts")}
             index={1}
           >
-            <SubCategory 
-              title="Photography" 
+            <SubCategory
+              title="Photography"
+              description="Visual storytelling and creative work"
               icon={<Camera className="w-4 h-4" />}
               defaultOpen={true}
             >
@@ -492,8 +495,9 @@ export default function Home() {
             onClick={() => toggleCategory("literature")}
             index={2}
           >
-            <SubCategory 
-              title="Poetry & Philosophy" 
+            <SubCategory
+              title="Poetry & Philosophy"
+              description="Language, thought, and meaning"
               icon={<Feather className="w-4 h-4" />}
             >
               {poetryPhilosophyLinks.map((link) => (
@@ -508,8 +512,9 @@ export default function Home() {
               ))}
             </SubCategory>
 
-            <SubCategory 
-              title="Black Radical Thought" 
+            <SubCategory
+              title="History & Liberation"
+              description="Essential voices on freedom and justice"
               icon={<BookMarked className="w-4 h-4" />}
             >
               {blackRadicalLinks.map((link) => (
@@ -524,8 +529,9 @@ export default function Home() {
               ))}
             </SubCategory>
 
-            <SubCategory 
-              title="Feminist & Intersectional" 
+            <SubCategory
+              title="Identity & Equity"
+              description="Perspectives on gender, race, and power"
               icon={<Sparkles className="w-4 h-4" />}
             >
               {feministIntersectionalLinks.map((link) => (
@@ -550,8 +556,9 @@ export default function Home() {
             onClick={() => toggleCategory("fitness")}
             index={3}
           >
-            <SubCategory 
-              title="Health & Wellness" 
+            <SubCategory
+              title="Health & Wellness"
+              description="Fitness, nutrition, and balance"
               icon={<Heart className="w-4 h-4" />}
               defaultOpen={true}
             >
@@ -577,8 +584,9 @@ export default function Home() {
             onClick={() => toggleCategory("tech")}
             index={4}
           >
-            <SubCategory 
-              title="Urban Planning" 
+            <SubCategory
+              title="Urban Planning"
+              description="Cities, housing, and community design"
               icon={<Building2 className="w-4 h-4" />}
             >
               {urbanPlanningLinks.map((link) => (
@@ -593,8 +601,9 @@ export default function Home() {
               ))}
             </SubCategory>
 
-            <SubCategory 
-              title="Technology Critique" 
+            <SubCategory
+              title="Technology & Society"
+              description="How tech shapes communities"
               icon={<Cpu className="w-4 h-4" />}
             >
               {techCritiqueLinks.map((link) => (
@@ -619,8 +628,9 @@ export default function Home() {
             onClick={() => toggleCategory("mutualaid")}
             index={5}
           >
-            <SubCategory 
-              title="✊ Black Mutual Aid" 
+            <SubCategory
+              title="Community Support"
+              description="Mutual aid networks and resources"
               icon={<HandHeart className="w-4 h-4" />}
             >
               {mutualAidLinks.map((link) => (
@@ -635,8 +645,9 @@ export default function Home() {
               ))}
             </SubCategory>
 
-            <SubCategory 
-              title="Know Your Rights / ICE" 
+            <SubCategory
+              title="Know Your Rights"
+              description="Legal resources and immigrant advocacy"
               icon={<Shield className="w-4 h-4" />}
             >
               {iceResistanceLinks.map((link) => (
@@ -651,8 +662,9 @@ export default function Home() {
               ))}
             </SubCategory>
 
-            <SubCategory 
-              title="Support Minnesota" 
+            <SubCategory
+              title="Support Minnesota"
+              description="Local orgs and grassroots efforts"
               icon={<MapPin className="w-4 h-4" />}
             >
               {minnesotaLinks.map((link) => (
@@ -667,8 +679,9 @@ export default function Home() {
               ))}
             </SubCategory>
 
-            <SubCategory 
-              title="Sudan & Gaza Solidarity" 
+            <SubCategory
+              title="Global Solidarity"
+              description="Humanitarian aid and international support"
               icon={<Globe className="w-4 h-4" />}
             >
               {globalSolidarityLinks.map((link) => (
@@ -686,6 +699,7 @@ export default function Home() {
 
         </div>
 
+        <Footer />
       </main>
     </div>
   );

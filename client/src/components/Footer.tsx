@@ -34,15 +34,16 @@ export function Footer() {
         >
           Made with{" "}
           <motion.span
-            animate={{ rotate: [0, 10, -10, 0] }}
+            animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
             className="inline-block"
+            style={{ color: "var(--brutal-red)" }}
           >
-            ⚡
+            ♥
           </motion.span>{" "}
-          using{" "}
+          by{" "}
           <span style={{ color: "var(--brutal-red)" }}>
-            LinkHub
+            bjtheartist
           </span>
         </p>
       </motion.div>

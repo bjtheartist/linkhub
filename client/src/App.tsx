@@ -1,8 +1,10 @@
+import { useState, useCallback } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { LoadingScreen } from "./components/LoadingScreen";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
@@ -24,11 +26,15 @@ function Router() {
  */
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const handleLoadingComplete = useCallback(() => setLoading(false), []);
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
           <Router />
         </TooltipProvider>
       </ThemeProvider>
