@@ -40,32 +40,20 @@ export function ProfileHeader({ name, bio, avatarUrl, location }: ProfileHeaderP
         
         {/* Avatar container */}
         <div
-          className="relative w-28 h-28 sm:w-36 sm:h-36 overflow-hidden"
+          className="relative w-28 h-28 sm:w-36 sm:h-36 overflow-hidden flex items-center justify-center"
           style={{
             border: "4px solid var(--brutal-black)",
-            background: "var(--brutal-cream)",
+            background: "var(--brutal-red)",
           }}
         >
-          <img
-            src={avatarUrl || "/images/avatar-placeholder.png"}
-            alt={name}
-            className="w-full h-full object-cover"
-          />
+          <span
+            className="font-display font-bold text-4xl sm:text-5xl uppercase select-none"
+            style={{ color: "var(--brutal-cream)" }}
+          >
+            {name.split(" ").map(w => w[0]).join("")}
+          </span>
         </div>
 
-        {/* Status badge */}
-        <motion.div
-          className="absolute -bottom-2 -right-2 px-3 py-1 font-display text-xs font-bold uppercase"
-          style={{
-            background: "var(--brutal-red)",
-            color: "var(--brutal-cream)",
-            border: "2px solid var(--brutal-black)",
-          }}
-          animate={{ rotate: [0, 2, 0, -2, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          Online
-        </motion.div>
       </motion.div>
 
       {/* Name with red underline */}

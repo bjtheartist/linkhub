@@ -13,16 +13,14 @@ import { Footer } from "@/components/Footer";
 import { LinkCard } from "@/components/LinkCard";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { SocialLinks } from "@/components/SocialLinks";
-import { 
+import {
   Palette,
-  BookOpen, 
+  BookOpen,
   Heart,
   Cpu,
   HandHeart,
   Github,
-  Twitter,
   Linkedin,
-  Mail,
   Camera,
   Feather,
   BookMarked,
@@ -37,10 +35,8 @@ import {
   AlertTriangle,
   Sparkles,
   Briefcase,
-  FileText,
   PenTool,
   Rocket,
-  TrendingUp,
 } from "lucide-react";
 
 // ============================================
@@ -48,17 +44,14 @@ import {
 // ============================================
 
 const profile = {
-  name: "Your Name",
-  bio: "Developer • Designer • Creator. Building cool things and sharing what I learn along the way.",
-  avatarUrl: "/images/avatar-placeholder.png",
-  location: "San Francisco, CA",
+  name: "Billy Ndizeye",
+  bio: "Connecting Chicago's startup ecosystem to capital, community, and opportunity.",
+  location: "Chicago, IL",
 };
 
 const socialLinks = [
-  { name: "GitHub", url: "https://github.com", icon: <Github className="w-5 h-5" /> },
-  { name: "Twitter", url: "https://twitter.com", icon: <Twitter className="w-5 h-5" /> },
-  { name: "LinkedIn", url: "https://linkedin.com", icon: <Linkedin className="w-5 h-5" /> },
-  { name: "Email", url: "mailto:hello@example.com", icon: <Mail className="w-5 h-5" /> },
+  { name: "GitHub", url: "https://github.com/bjtheartist", icon: <Github className="w-5 h-5" /> },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/billyndizeye/", icon: <Linkedin className="w-5 h-5" /> },
 ];
 
 // ============================================
@@ -67,57 +60,19 @@ const socialLinks = [
 
 const portfolioLinks = [
   {
-    title: "Full Portfolio",
-    description: "Startup and economic development work",
-    url: "#", // Replace with your portfolio URL
-    icon: <Briefcase className="w-5 h-5" />,
-  },
-  {
-    title: "Featured Project: [Project Name]",
-    description: "Brief description of your key project",
-    url: "#", // Replace with project URL
+    title: "GitHub",
+    description: "Open source projects and code",
+    url: "https://github.com/bjtheartist",
     icon: <Rocket className="w-5 h-5" />,
-  },
-  {
-    title: "Case Studies",
-    description: "Deep dives into selected work",
-    url: "#", // Replace with case studies URL
-    icon: <TrendingUp className="w-5 h-5" />,
   },
 ];
 
-const resumeLinks = [
-  {
-    title: "CV / Resume",
-    description: "Professional experience and education",
-    url: "#", // Replace with CV/resume URL or PDF
-    icon: <FileText className="w-5 h-5" />,
-  },
-  {
-    title: "LinkedIn Profile",
-    description: "Connect with me professionally",
-    url: "https://linkedin.com", // Replace with your LinkedIn
-    icon: <Linkedin className="w-5 h-5" />,
-  },
-];
 
 const writingsLinks = [
   {
-    title: "Selected Essays",
-    description: "Thoughts on startups, econ dev, and more",
-    url: "#", // Replace with essays URL
-    icon: <PenTool className="w-5 h-5" />,
-  },
-  {
-    title: "Published Articles",
-    description: "Writing featured in publications",
-    url: "#", // Replace with articles URL
-    icon: <FileText className="w-5 h-5" />,
-  },
-  {
-    title: "Blog / Newsletter",
-    description: "Regular updates and reflections",
-    url: "#", // Replace with blog URL
+    title: "Capital Access Project",
+    description: "Research on startup funding and economic development",
+    url: "https://chistartuphub.substack.com/",
     icon: <PenTool className="w-5 h-5" />,
   },
 ];
@@ -130,13 +85,13 @@ const photographyLinks = [
   {
     title: "Photography Portfolio",
     description: "My visual storytelling work",
-    url: "https://unsplash.com",
+    url: "https://galleries.pixieset.com/collections/99513278/sets/142466368",
     icon: <Camera className="w-5 h-5" />,
   },
   {
-    title: "Instagram Gallery",
-    description: "Daily shots and behind the scenes",
-    url: "https://instagram.com",
+    title: "Instagram",
+    description: "@bjtheartist",
+    url: "https://instagram.com/bjtheartist",
     icon: <Camera className="w-5 h-5" />,
   },
 ];
@@ -232,15 +187,9 @@ const feministIntersectionalLinks = [
 
 const fitnessLinks = [
   {
-    title: "Fitness Journey Blog",
-    description: "Workouts, nutrition, and wellness tips",
-    url: "https://medium.com",
-    icon: <Heart className="w-5 h-5" />,
-  },
-  {
-    title: "Health Resources",
-    description: "Curated guides for holistic wellness",
-    url: "https://notion.so",
+    title: "Fitness Journey",
+    description: "Workouts, nutrition, and wellness",
+    url: "https://instagram.com/bjtheartist",
     icon: <Heart className="w-5 h-5" />,
   },
 ];
@@ -455,7 +404,6 @@ export default function Home() {
         <ProfileHeader
           name={profile.name}
           bio={profile.bio}
-          avatarUrl={profile.avatarUrl}
           location={profile.location}
         />
 
@@ -491,23 +439,7 @@ export default function Home() {
               ))}
             </SubCategory>
 
-            <SubCategory 
-              title="CV / Resume" 
-              icon={<FileText className="w-4 h-4" />}
-            >
-              {resumeLinks.map((link) => (
-                <LinkCard
-                  key={link.title}
-                  title={link.title}
-                  description={link.description}
-                  url={link.url}
-                  icon={link.icon}
-                  index={linkIndex++}
-                />
-              ))}
-            </SubCategory>
-
-            <SubCategory 
+<SubCategory 
               title="Select Writings" 
               icon={<PenTool className="w-4 h-4" />}
             >
