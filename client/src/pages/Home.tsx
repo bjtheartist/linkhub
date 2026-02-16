@@ -45,7 +45,7 @@ import {
 
 const profile = {
   name: "Billy Ndizeye",
-  bio: "Connecting Chicago's startup ecosystem to capital, community, and opportunity.",
+  bio: "Lover of all things Chicago tech, capital, and community.",
   location: "Chicago, IL",
 };
 
@@ -686,7 +686,6 @@ export default function Home() {
 
         </div>
 
-        <Footer />
       </main>
     </div>
   );
