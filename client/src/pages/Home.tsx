@@ -63,6 +63,12 @@ const socialLinks = [
 
 const portfolioLinks = [
   {
+    title: "Kivara Studios",
+    description: "Digital strategy studio — websites, content, and brand design",
+    url: "https://kivarastudios.dev",
+    icon: <Globe className="w-5 h-5" />,
+  },
+  {
     title: "GitHub",
     description: "Open source projects and code",
     url: "https://github.com/bjtheartist",
