@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function About() {
@@ -121,8 +121,119 @@ export default function About() {
             </p>
           </ContentBlock>
         </div>
+
+        {/* Projects Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="mt-12 mb-8"
+        >
+          <div className="relative inline-block mb-6">
+            <h2
+              className="font-display font-bold text-3xl sm:text-4xl uppercase tracking-tight"
+              style={{ color: "var(--brutal-black)" }}
+            >
+              Projects
+            </h2>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="absolute -bottom-2 left-0 right-0 h-2 origin-left"
+              style={{ background: "var(--brutal-red)" }}
+            />
+          </div>
+        </motion.div>
+
+        <div className="space-y-6">
+          <ProjectCard
+            delay={0.8}
+            title="Kivara Studios"
+            description="A digital strategy studio helping business owners build websites, content strategies, and digital presence designed to drive conversions. Specializing in React, Next.js, WordPress, SEO, and brand design."
+            url="https://kivarastudios.dev"
+            tags={["Web Development", "Digital Strategy", "Brand Design"]}
+          />
+        </div>
       </main>
     </div>
+  );
+}
+
+function ProjectCard({
+  delay,
+  title,
+  description,
+  url,
+  tags,
+}: {
+  delay: number;
+  title: string;
+  description: string;
+  url: string;
+  tags: string[];
+}) {
+  return (
+    <motion.a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay }}
+      whileHover={{ x: 4, y: 4 }}
+      whileTap={{ x: 6, y: 6 }}
+      className="relative block cursor-pointer"
+    >
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "var(--brutal-black)",
+          transform: "translate(6px, 6px)",
+        }}
+      />
+      <div
+        className="relative p-6"
+        style={{
+          background: "var(--brutal-cream)",
+          border: "3px solid var(--brutal-black)",
+        }}
+      >
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <h3
+            className="font-display font-bold text-xl uppercase tracking-tight"
+            style={{ color: "var(--brutal-black)" }}
+          >
+            {title}
+          </h3>
+          <ExternalLink
+            className="w-5 h-5 flex-shrink-0 mt-1"
+            style={{ color: "var(--brutal-red)" }}
+          />
+        </div>
+        <p
+          className="text-base leading-relaxed mb-4"
+          style={{ color: "var(--brutal-black)" }}
+        >
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1 text-xs font-display font-bold uppercase"
+              style={{
+                background: "var(--brutal-red)",
+                color: "var(--brutal-cream)",
+                border: "2px solid var(--brutal-black)",
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.a>
   );
 }
 
