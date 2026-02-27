@@ -92,9 +92,9 @@ const writingsLinks = [
 
 const photographyLinks = [
   {
-    title: "Photography Portfolio",
-    description: "My visual storytelling work",
-    url: "https://galleries.pixieset.com/collections/99513278/sets/142466368",
+    title: "BJN Photography",
+    description: "Events, portraits, and culture photography in Chicago",
+    url: "https://bjtheartist.github.io/photography-portfolio/",
     icon: <Camera className="w-5 h-5" />,
   },
 ];
